@@ -26,32 +26,32 @@ import android.net.Uri
  */
 
 fun Context.browse(url: String, newTask: Boolean = false): Boolean {
-    try {
+    return try {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
         if (newTask) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         startActivity(intent)
-        return true
+        true
     } catch (e: ActivityNotFoundException) {
         e.printStackTrace()
-        return false
+        false
     }
 }
 
 
 fun Context.share(text: String, subject: String = ""): Boolean {
-    try {
+    return try {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         intent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject)
         intent.putExtra(android.content.Intent.EXTRA_TEXT, text)
         startActivity(Intent.createChooser(intent, null))
-        return true
+        true
     } catch (e: ActivityNotFoundException) {
         e.printStackTrace()
-        return false
+        false
     }
 }
 
@@ -76,26 +76,26 @@ fun Context.email(email: String, subject: String = "", text: String = ""): Boole
 
 @SuppressLint("MissingPermission")
 fun Context.makeCall(number: String): Boolean {
-    try {
+    return try {
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$number"))
         startActivity(intent)
-        return true
+        true
     } catch (e: Exception) {
         e.printStackTrace()
-        return false
+        false
     }
 }
 
 
 fun Context.sendSMS(number: String, text: String = ""): Boolean {
-    try {
+    return try {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("sms:$number"))
         intent.putExtra("sms_body", text)
         startActivity(intent)
-        return true
+        true
     } catch (e: Exception) {
         e.printStackTrace()
-        return false
+        false
     }
 }
 
