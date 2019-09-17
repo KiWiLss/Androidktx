@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.kiwilss.lxkj.androidktx.R
+import com.kiwilss.lxkj.androidktx.ui.base_test.TestOneActivity
 import com.kiwilss.lxkj.androidktx.ui.okhttp.OkhttpActivity
 import com.kiwilss.lxkj.xktx.core.click
 import com.kiwilss.lxkj.xktx.core.startActivity
@@ -36,11 +37,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tv_fg_home_okhttp.click {
-
+        btn_fg_home_okhttp.click {
             startActivity<OkhttpActivity>()
         }
 
+        btn_fg_home_base.click {
+            startActivity<TestOneActivity>()
+        }
 
     }
 }

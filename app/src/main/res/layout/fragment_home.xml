@@ -26,13 +26,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_fg_home_okhttp"
+                <Button
+                    android:id="@+id/btn_fg_home_okhttp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="okhttptest"/>
+                    android:text="okhttptest"
+                    android:textAllCaps="false"/>
 
-
+                <Button
+                    android:id="@+id/btn_fg_home_base"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="base test"
+                    android:textAllCaps="false"/>
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

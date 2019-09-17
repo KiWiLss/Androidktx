@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:name">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -26,6 +27,8 @@
         </activity>
 
         <activity android:name=".ui.okhttp.OkhttpActivity"/>
+
+        <activity android:name=".ui.base_test.TestOneActivity" android:label="测试一"/>
     </application>
 
 </manifest>
