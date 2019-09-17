@@ -10,11 +10,14 @@
  */
 package com.kiwilss.lxkj.androidktx.ui.base_test
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.blankj.utilcode.util.LogUtils
-import com.kiwilss.lxkj.basemvp.base.BasePresenter
-import com.kiwilss.lxkj.basemvp.bean.HomeBanner
-import com.kiwilss.lxkj.basemvp.http.RetrofitHelper
+
+import com.kiwilss.lxkj.baseokhttp.base.BasePresenter
+import com.kiwilss.lxkj.baseokhttp.bean.BaseBean
+import com.kiwilss.lxkj.baseokhttp.bean.HomeBanner
+import com.kiwilss.lxkj.okhttp.okhttp.get
+import com.kiwilss.lxkj.okhttp.okhttp.http
 
 /**
  *@FileName: TestOnePresenter
@@ -41,11 +44,17 @@ class TestOnePresenter : BasePresenter(){
 //        }
 
         handlerResult {
-            val response = RetrofitHelper.apiService.getBanner()
-            LogUtils.e(response)
-                executeResponse(response){
-                    test1.value = response.data
-                }
+            val baseBean = "https://www.wanandroid.com/banner/json".http().get<BaseBean<List<HomeBanner>>>().await()
+            Log.e("MMM", "presenter: $baseBean" );
+            val data = baseBean?.data
+            executeResponse(baseBean){
+                test1.value = data
+            }
+//            val response = RetrofitHelper.apiService.getBanner()
+//            LogUtils.e(response)
+//                executeResponse(response){
+//                    test1.value = response.data
+//                }
         }
 
     }

@@ -53,9 +53,17 @@ class OkhttpActivity : AppCompatActivity(){
 //                if (response.toString().isNotEmpty())
 //                    tv_fg_home_text.text = response.toString()
 //            }
-        }
 
+            //https://www.wanandroid.com/banner/json
+//            val baseBean = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/1".http()
+//                .get<String>().await()
+//                LogUtils.e(baseBean)
+                //LogUtils.e(baseBean?.data)
+
+        }
         //job.cancel()
+
+
     }
 
 

@@ -13,7 +13,7 @@ package com.kiwilss.lxkj.androidktx
 import android.app.Application
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
-import com.kiwilss.lxkj.basemvp.BaseConfig
+import com.coder.zzq.smartshow.core.SmartShow
 import com.kiwilss.lxkj.okhttp.OkhttpConfig
 import com.kiwilss.lxkj.xktx.AndroidKtxConfig
 
@@ -32,8 +32,9 @@ class MyApp : Application(){
         AndroidKtxConfig.init(this)
 
         Utils.init(this)
-        BaseConfig.init(this)
+        //BaseConfig.init(this)
         LogUtils.getConfig().setLogSwitch(true).globalTag = "MMM"
-
+        //toast,topbar,snackbar初始化
+        SmartShow.init(this)
     }
 }

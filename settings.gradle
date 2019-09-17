@@ -1,2 +1,2 @@
-include ':app', ':xktx', ':okhttp', ':fillet', ':basemvp'
+include ':app', ':xktx', ':okhttp', ':fillet', ':basemvp', ':mvpdemo', ':baseokhttp', ':okhttpdemo'
 rootProject.name='Androidktx'

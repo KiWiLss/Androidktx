@@ -15,7 +15,7 @@ import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.LogUtils
 import com.kiwilss.lxkj.androidktx.R
 import com.kiwilss.lxkj.androidktx.ui.base_test.fg.TestOneFg
-import com.kiwilss.lxkj.basemvp.base.BaseActivity
+import com.kiwilss.lxkj.baseokhttp.base.BaseActivity
 import com.kiwilss.lxkj.xktx.core.click
 import com.kiwilss.lxkj.xktx.core.fragmentManager
 import kotlinx.android.synthetic.main.activity_test_one.*
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.activity_test_one.*
  * @time   : 2019-09-16
  * @desc   : {DESCRIPTION}
  */
-class TestOneActivity: BaseActivity <TestOnePresenter>() {
+class TestOneActivity: BaseActivity<TestOnePresenter>() {
     override fun initPresenter(): TestOnePresenter = TestOnePresenter()
 
 

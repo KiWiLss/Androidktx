@@ -10,7 +10,8 @@
  */
 package com.kiwilss.lxkj.androidktx.ui.base_test.fg
 
-import com.kiwilss.lxkj.basemvp.base.BasePresenter
+
+import com.kiwilss.lxkj.baseokhttp.base.BasePresenter
 
 /**
  *@FileName: TestOneFgPresenter

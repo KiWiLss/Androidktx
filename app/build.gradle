@@ -40,5 +40,7 @@ dependencies {
     implementation project(path: ':okhttp')
     implementation project(path: ':xktx')
     implementation project(path: ':fillet')
-    implementation project(path: ':basemvp')
+    implementation project(path: ':baseokhttp')
+
+
 }

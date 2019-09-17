@@ -13,7 +13,7 @@ package com.kiwilss.lxkj.androidktx.ui.base_test.fg
 import android.os.Bundle
 import android.view.View
 import com.kiwilss.lxkj.androidktx.R
-import com.kiwilss.lxkj.basemvp.base.BaseFragment
+import com.kiwilss.lxkj.baseokhttp.base.BaseFragment
 
 /**
  *@FileName: TestOneFg
