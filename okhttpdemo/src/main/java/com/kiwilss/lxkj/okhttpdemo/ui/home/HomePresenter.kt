@@ -12,11 +12,14 @@ package com.kiwilss.lxkj.okhttpdemo.ui.home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.alibaba.fastjson.JSON
+import com.blankj.utilcode.util.LogUtils
 import com.kiwilss.lxkj.baseokhttp.base.BasePresenter
 import com.kiwilss.lxkj.baseokhttp.bean.BaseBean
 import com.kiwilss.lxkj.baseokhttp.bean.HomeBanner
 import com.kiwilss.lxkj.okhttp.okhttp.get
 import com.kiwilss.lxkj.okhttp.okhttp.http
+import com.kiwilss.lxkj.okhttp.okhttp.post
 
 /**
  *@FileName: HomePresenter
@@ -26,6 +29,32 @@ import com.kiwilss.lxkj.okhttp.okhttp.http
  * @desc   : {DESCRIPTION}
  */
 class HomePresenter : BasePresenter(){
+
+    val collectData = MutableLiveData<Any>()
+    fun getCollect(){
+        handlerResult {
+            val response = "https://www.wanandroid.com/lg/collect/list/0/json"
+                .http().get<BaseBean<Any>>().await()
+            executeResponse(response){
+                collectData.postValue(response?.data)
+            }
+        }
+    }
+
+    val loginData = MutableLiveData<CollectBean>()
+    fun login(){
+        handlerResult {
+            val response = "https://www.wanandroid.com/user/login"
+                .http().params("username" to "kiwilss",
+                    "password" to "120")
+                .post<BaseBean<CollectBean>>().await()
+            LogUtils.e(JSON.toJSONString(response))
+            executeResponse(response){
+                loginData.postValue(response?.data)
+            }
+        }
+    }
+
 
     val test1 = MutableLiveData<List<HomeBanner>>()
         fun get(){

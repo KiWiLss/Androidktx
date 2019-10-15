@@ -36,6 +36,25 @@ class BannerPresenter : BasePresenter(){
         }
     }
 
+    val collectData = MutableLiveData<Any>()
+    fun getCollect(){
+        handlerResult {
+            val response = RetrofitHelper.apiService.getCollectList(0)
+            executeResponse(response){
+                collectData.value = response.data
+            }
+        }
+    }
+    val loginData = MutableLiveData<Any>()
+    fun login(){
+        handlerResult {
+            val response = RetrofitHelper.apiService.login("kiwilss","120")
+            executeResponse(response){
+                loginData.value = response.data
+            }
+        }
+    }
+
 }
 
 class Banner: ViewModel(){

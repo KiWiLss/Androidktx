@@ -104,7 +104,11 @@ abstract class BasePresenter {
                 if (isBean){
                     beanBlock()
                 }else{
-                    successBlock()
+                    if (response.errorCode == 0){
+                        successBlock()
+                    }else{
+                        errorBlock()
+                    }
                 }
             }
 //            if (isBean){

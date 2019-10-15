@@ -14,7 +14,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.LogUtils
 import com.kiwilss.lxkj.basemvp.base.BaseActivity
-import com.kiwilss.lxkj.basemvp.util.toastS
 import com.kiwilss.lxkj.mvpdemo.R
 import com.kiwilss.lxkj.xktx.core.click
 import kotlinx.android.synthetic.main.activity_banner.*
@@ -37,6 +36,12 @@ class BannerActivity : BaseActivity<BannerPresenter>() {
                 tv_banner_data.text = this.toString()
             }
         })
+        mPresenter.collectData.observe(this, Observer {
+            LogUtils.e(it)
+        })
+        mPresenter.loginData.observe(this, Observer {
+            LogUtils.e(it)
+        })
     }
 
     override fun initData() {
@@ -44,9 +49,15 @@ class BannerActivity : BaseActivity<BannerPresenter>() {
 
     override fun initOnClick() {
         btn_banner_data.click {
-//            showLoadingDiloag()
-//            mPresenter.getData()
-            toastS("clcik")
+            showLoadingDiloag()
+            mPresenter.getData()
+            //toastS("clcik")
+        }
+        btn_banner_collect.click {
+            mPresenter.getCollect()
+        }
+        btn_banner_login.click {
+            mPresenter.login()
         }
     }
 

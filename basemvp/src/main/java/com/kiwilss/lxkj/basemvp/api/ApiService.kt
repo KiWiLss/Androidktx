@@ -13,8 +13,7 @@ package com.kiwilss.lxkj.basemvp.api
 
 import com.kiwilss.lxkj.basemvp.bean.BaseBean
 import com.kiwilss.lxkj.basemvp.bean.HomeBanner
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 
 /**
@@ -59,6 +58,26 @@ interface ApiService{
 
     @GET("banner/json")
     suspend fun getBanner(): BaseBean<List<HomeBanner>>
+
+    /**
+     *  获取收藏列表
+     *  http://www.wanandroid.com/lg/collect/list/0/json
+     *  @param page
+     */
+    @GET("lg/collect/list/{page}/json")
+    suspend fun getCollectList(@Path("page")page: Int): BaseBean<Any>
+
+
+    /**
+     * 登录
+     * http://www.wanandroid.com/user/login
+     * @param username
+     * @param password
+     */
+    @FormUrlEncoded
+    @POST("user/login")
+    suspend fun login(@Field("username")username: String,
+                      @Field("password")password: String): BaseBean<Any>
 
 
 }

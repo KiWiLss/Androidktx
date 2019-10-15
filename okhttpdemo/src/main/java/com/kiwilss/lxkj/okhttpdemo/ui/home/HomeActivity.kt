@@ -34,6 +34,12 @@ class HomeActivity : BaseActivity<HomePresenter>() {
             dismissLoadingDiloag()
             tv_home_info.text = it[0].title
         })
+        mPresenter.loginData.observe(this, Observer {
+            LogUtils.e(it.nickname)
+        })
+        mPresenter.collectData.observe(this, Observer {
+            LogUtils.e(it)
+        })
     }
 
     override fun initData() {
@@ -43,6 +49,12 @@ class HomeActivity : BaseActivity<HomePresenter>() {
         btn_home_test1.click {
             showLoadingDiloag()
             mPresenter.get()
+        }
+        btn_home_collect.click {
+            mPresenter.getCollect()
+        }
+        btn_home_login.click {
+            mPresenter.login()
         }
     }
 
